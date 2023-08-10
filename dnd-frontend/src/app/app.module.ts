@@ -8,26 +8,19 @@ import { UserComponent } from './user/user.component';
 import { AddSupplierComponent } from './supplier/add-supplier/add-supplier.component';
 import { ViewSupplierComponent } from './supplier/view-supplier/view-supplier.component';
 import { UpdateSupplierComponent } from './supplier/update-supplier/update-supplier.component';
-<<<<<<< Updated upstream
-=======
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SupplierComponent } from './supplier/supplier.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
     AppComponent,
     ModelsComponent,
-<<<<<<< Updated upstream
     UserComponent,
-AddSupplierComponent,
-ViewSupplierComponent,
-UpdateSupplierComponent
-=======
-    UserComponent,
+    AddSupplierComponent,
+    ViewSupplierComponent,
+    UpdateSupplierComponent,
     DashboardComponent,
     SupplierComponent
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
