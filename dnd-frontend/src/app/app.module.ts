@@ -11,7 +11,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './Shared/nav-bar/nav-bar.component';
-import { RawMaterialsComponent } from './raw-materials/raw-materials.component';
 import { AddRawMaterialComponent } from './raw-materials/add-raw-material/add-raw-material.component';
 import { AddRawMaterialOrderComponent } from './raw-materials/add-raw-material-order/add-raw-material-order.component';
 import { ViewRawMaterialComponent } from './raw-materials/view-raw-material/view-raw-material.component';
@@ -26,7 +25,6 @@ import { ViewRawMaterialOrdersComponent } from './raw-materials/view-raw-materia
     UpdateSupplierComponent,
     DashboardComponent,
     NavBarComponent,
-    RawMaterialsComponent,
     AddRawMaterialComponent,
     AddRawMaterialOrderComponent,
     ViewRawMaterialComponent,
