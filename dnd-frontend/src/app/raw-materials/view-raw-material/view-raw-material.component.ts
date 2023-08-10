@@ -10,7 +10,7 @@ import { RawmaterialService } from 'src/app/services/rawmaterial.service';
   styleUrls: ['./view-raw-material.component.css'],
 })
 export class ViewRawMaterialComponent implements OnInit {
-  rawMaterials: RawMaterial[] = [];
+  rawMaterials: RawMaterial;
   role;
 
   constructor(
@@ -23,9 +23,10 @@ export class ViewRawMaterialComponent implements OnInit {
     this.role = this.authService.getRole();
     this.rawMaterialService
       .fetchAllRawmaterials()
-      .subscribe((data: RawMaterial[]) => {
-        this.rawMaterials = data;
-      });
+      .subscribe(data => (
+        console.log(data)
+      ),
+      error=>console.log(error));
   }
 
   navigate(): void {

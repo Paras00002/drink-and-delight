@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SupplierService } from 'src/app/Services/supplier.service';
+import { SupplierService } from 'src/app/services/supplier.service';
 import { Supplier } from 'src/app/models/supplier.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-update-supplier',
@@ -31,7 +32,7 @@ export class UpdateSupplierComponent {
     );
   }
 
-  updateSupplier() {
+  updateSupplier():Observable<any> {
     this.service.updateSupplier(this.supplier).subscribe(
       (data:Supplier) => {
         console.log(data);
