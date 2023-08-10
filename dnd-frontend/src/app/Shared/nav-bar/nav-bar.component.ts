@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from 'src/app/models/user.model';
+// import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,7 +7,7 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
-  public user!: User ;
+  // public user: User = null;
 
   navLinks=[
     {

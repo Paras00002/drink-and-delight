@@ -9,15 +9,43 @@ import { Supplier } from 'src/app/models/supplier.model';
   styleUrls: ['./update-supplier.component.css']
 })
 export class UpdateSupplierComponent {
+  id!: number;
+  supplier!: Supplier
+  constructor(
+    // private route: ActivatedRoute,
+    private service: SupplierService,
+    private router: Router
+  ) {}
 
-  supplier:Supplier;
+  ngOnInit(): void {
+    this.supplier = new Supplier();
+   
 
-  constructor(private service:SupplierService, router:Router) {
-    this.supplier=new Supplier();
+
+    this.service.fetchById(this.id).subscribe(
+      (data: Supplier) => {
+        console.log(data);
+        this.supplier = data;
+      },
+      (error: any) => console.log(error)
+    );
   }
 
-  updateSupplier()
-  {
+  updateSupplier() {
+    this.service.updateSupplier(this.supplier).subscribe(
+      (data:Supplier) => {
+        console.log(data);
+        this.supplier = new Supplier();
+        this.gotoList();
+      },
+      (error:any) => console.log(error)
+    );
+  }
+  onSubmit() {
+    this.updateSupplier();
+  }
 
+  gotoList() {
+    this.router.navigate(['/dashboard/suppliers']);
   }
 }
