@@ -11,11 +11,16 @@ import { Supplier } from 'src/app/models/supplier.model';
 export class ViewSupplierComponent implements OnInit {
   supplier!: Supplier;
   suppliers!: Supplier[];
+  role:any
   constructor(private service: SupplierService, private router: Router) {}
   ngOnInit(): void {
     this.service.fetchAllSupplier();
     // .subscribe((res:Supplier[])=>{
     //   this.suppliers=res;
     // })
+  }
+  updateSupplier()
+  {
+
   }
 }
