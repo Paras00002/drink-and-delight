@@ -10,6 +10,7 @@ import { UpdateSupplierComponent } from './supplier/update-supplier/update-suppl
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AppComponent } from './app.component';
+import { NavBarComponent } from './Shared/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppComponent } from './app.component';
     AddSupplierComponent,
     ViewSupplierComponent,
     UpdateSupplierComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
