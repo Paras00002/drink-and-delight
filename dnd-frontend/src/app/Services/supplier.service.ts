@@ -1,8 +1,11 @@
-import { HttpClient } from "@angular/common/http";
-import { Supplier } from "../models/supplier.model";
+import { Injectable } from '@angular/core';
+import { Supplier } from '../models/supplier.model';
+import { HttpClient } from '@angular/common/http';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class SupplierService {
-
   serviceUrl =""
 
   constructor(private http :HttpClient) {
@@ -21,4 +24,3 @@ export class SupplierService {
     formData;
   }
 }
-
