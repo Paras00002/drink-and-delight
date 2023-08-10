@@ -1,5 +1,3 @@
-<!-- <app-user></app-user>
-<app-dashboard></app-dashboard> -->
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <div class="container">
         <a class="navbar-brand" routerLink="/">Drink and Delight</a>
@@ -15,19 +13,23 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/products">Products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/raw-materials">Raw Materials</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/suppliers">Suppliers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/distributors">Distributors</a>
+                <li class="nav-item dropdown"> <!-- Add dropdown class to the <li> element -->
+                    <a class="nav-link dropdown-toggle"  id="rawProductsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Raw Products
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="rawProductsDropdown">
+                        <a class="dropdown-item" routerLink="/raw-materials">All Raw Materials</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/suppliers">Display Supplier</a>
+                        <a class="dropdown-item" routerLink="/distributors">Display Distributor</a>
+                    </div>
                 </li>
             </ul>
             <button class="btn btn-danger">Logout</button>
         </div>
     </div>
 </nav>
+
+
 
 <router-outlet></router-outlet>
