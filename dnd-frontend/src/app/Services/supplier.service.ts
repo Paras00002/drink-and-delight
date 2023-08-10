@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Supplier } from "../models/supplier.model";
 
 export class SupplierService {
@@ -20,3 +21,4 @@ export class SupplierService {
     formData;
   }
 }
+

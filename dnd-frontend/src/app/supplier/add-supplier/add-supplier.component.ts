@@ -1,24 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { SupplierService } from 'src/app/Services/supplier.service';
+import { SupplierService } from 'src/app/services/supplier.service';
 import { Supplier } from 'src/app/models/supplier.model';
 
 @Component({
   selector: 'app-add-supplier',
   templateUrl: './add-supplier.component.html',
-  styleUrls: ['./add-supplier.component.css']
+  styleUrls: ['./add-supplier.component.css'],
 })
 export class AddSupplierComponent {
+ @Input() supplier: Supplier;
 
-  supplier:Supplier;
-
-  constructor(private service: SupplierService , router:Router)
-  {
-    this.supplier=new Supplier();
+  constructor(private service: SupplierService, router: Router) {
+    this.supplier = new Supplier();
   }
 
-  addSupplier()
-  {
-    this.service.addSupplier(this.supplier)
+  addSupplier() {
+    this.service.addSupplier(this.supplier);
   }
 }

@@ -1,1 +1,18 @@
-<p>add-supplier works!</p>
+<form (ngSubmit)="addSupplier()">
+    <label for="supplierId">Supplier ID:</label>
+    <input type="number" id="supplierId" [(ngModel)]="supplier.supplierId" name="supplierId" required>
+    
+    <label for="supplierName">Supplier Name:</label>
+    <input type="text" id="supplierName" [(ngModel)]="supplier.name" name="name" required>
+    
+    <label for="supplierLocation">Supplier Location:</label>
+    <input type="text" id="supplierLocation" [(ngModel)]="supplier.location" name="location" required>
+    
+    <label for="supplierPhone">Supplier Phone:</label>
+    <input type="tel" id="supplierPhone" [(ngModel)]="supplier.phoneNo" name="phoneNo" required>
+    
+    <!-- Add more form fields as needed -->
+  
+    <button type="submit">Create Supplier</button>
+  </form>
+  
