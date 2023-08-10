@@ -41,7 +41,7 @@ export class NavBarComponent {
       role: 'User',
     },
     {
-      route: '/dashboard/suppliers',
+      route: 'suppliers',
       class: 'fas fa-people-carry',
       label: 'Suppliers',
       role: 'User',
