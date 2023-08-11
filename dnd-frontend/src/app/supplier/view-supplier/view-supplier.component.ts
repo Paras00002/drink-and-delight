@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SupplierService } from 'src/app/services/supplier.service';
 import { Supplier } from 'src/app/models/supplier.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-view-supplier',
@@ -32,13 +33,25 @@ export class ViewSupplierComponent implements OnInit {
     // Add more Supplier objects here
   ];
   role: any = 'Admin';
-  constructor(private service: SupplierService, private router: Router) {}
+  constructor(
+    private supplierService: SupplierService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
+
   ngOnInit(): void {
-    this.service.fetchAllSupplier();
-    // .subscribe((res:Supplier[])=>{
-    //   this.suppliers=res;
-    // })
+    this.role = this.authService.getRole();
+    this.supplierService
+      .fetchAllSupplier()
+      .subscribe((response: Supplier[]) => {
+        this.suppliers = response;
+      });
   }
-  reload() {}
-  updateSupplier(id: any) {}
+  reload() {
+    this.router.navigate(['/dashboard/suppliers']);
+  }
+
+  updateSupplier(id: number) {
+    this.router.navigate(['/dashboard/updatesupplier', id]);
+  }
 }
