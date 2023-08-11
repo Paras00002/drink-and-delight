@@ -11,7 +11,7 @@ import { Supplier } from 'src/app/models/supplier.model';
 export class ViewSupplierComponent implements OnInit {
   supplier!: Supplier;
   suppliers!: Supplier[];
-  role:any
+  role: any = 'Admin';
   constructor(private service: SupplierService, private router: Router) {}
   ngOnInit(): void {
     this.service.fetchAllSupplier();
@@ -19,8 +19,6 @@ export class ViewSupplierComponent implements OnInit {
     //   this.suppliers=res;
     // })
   }
-  updateSupplier()
-  {
-
-  }
+  reload() {}
+  updateSupplier(id: any) {}
 }

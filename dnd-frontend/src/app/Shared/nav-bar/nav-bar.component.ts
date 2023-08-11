@@ -4,12 +4,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
   // public user: User = null;
 
-  navLinks=[
+  navLinks = [
     {
       route: '/dashboard/viewprofile',
       class: 'fas fa-user',
@@ -41,7 +41,7 @@ export class NavBarComponent {
       role: 'User',
     },
     {
-      route: 'suppliers',
+      route: '/dashboard/suppliers',
       class: 'fas fa-people-carry',
       label: 'Suppliers',
       role: 'User',
