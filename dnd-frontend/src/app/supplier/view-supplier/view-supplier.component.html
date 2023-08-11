@@ -16,10 +16,7 @@
         <th>Location</th>
         <th>Phone Number</th>
 
-        <th
-          *ngIf="role === 'Admin'"
-          [routerLink]="['/dashboard/addsupplier']"
-        >
+        <th *ngIf="role === 'Admin'" [routerLink]="['/supplier/addsupplier']">
           <button type="submit" class="btn btn-success">
             Add New Supplier
           </button>

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+// import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -11,7 +11,10 @@ import { LoadingService } from 'src/app/Services/loading.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  loginForm!: FormGroup;
+  login2() {
+    this.router.navigate(['/dashboard']);
+  }
+  // loginForm!: FormGroup;
   submitted = false;
   loginSubscription: Subscription | undefined;
   constructor(
@@ -26,12 +29,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // this.authService.redirectIfLoggedIn();
-    this.initForm();
+    // this.initForm();
   }
 
   login() {
-    this.submitted = true;
-    if (this.loginForm.valid) this.submitData(this.loginForm.value);
+    // this.submitted = true;
+    // if (this.loginForm.valid) this.submitData(this.loginForm.value);
   }
 
   submitData(formData: any) {
@@ -55,10 +58,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.router.navigate(['/dashboard']);
   }
 
-  initForm() {
-    this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-    });
-  }
+  // initForm() {
+  //   this.loginForm = new FormGroup({
+  //     username: new FormControl('', [Validators.required]),
+  //     password: new FormControl('', [Validators.required]),
+  //   });
+  // }
 }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { SupplierService } from 'src/app/services/supplier.service';
 import { Supplier } from 'src/app/models/supplier.model';
+import { SupplierService } from 'src/app/services/supplier.service';
 
 @Component({
   selector: 'app-add-supplier',
@@ -9,7 +9,7 @@ import { Supplier } from 'src/app/models/supplier.model';
   styleUrls: ['./add-supplier.component.css'],
 })
 export class AddSupplierComponent {
- @Input() supplier: Supplier;
+  @Input() supplier: Supplier;
 
   constructor(private service: SupplierService, router: Router) {
     this.supplier = new Supplier();
