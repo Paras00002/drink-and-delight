@@ -1,47 +1,55 @@
-<!-- <p>view-profile works!</p> -->
-<br />
-<br />
-<div class="container">
-  <label>
-    <h1>Suppliers List</h1>
-  </label>
-  <br />
-  <br />
-
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Supplier Id</th>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Phone Number</th>
-
-        <th *ngIf="role === 'Admin'" [routerLink]="['/supplier/addsupplier']">
-          <button type="submit" class="btn btn-success">
-            Add New Supplier
-          </button>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let supplier of suppliers">
-        <td>{{ supplier.supplierId }}</td>
-        <td>{{ supplier.name }}</td>
-        <td>{{ supplier.location }}</td>
-        <td>{{ supplier.phoneNo }}</td>
-        <td>
-          <button
-            (click)="updateSupplier(supplier.supplierId)"
-            class="btn btn-primary"
-            style="margin-left: 10px"
-            *ngIf="role === 'Admin'"
-          >
-            Edit
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div>
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <div class="container-fluid">
+        <h2 class="text-dark mb-4">Suppliers List</h2>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p
+              class="text-primary m-0 font-weight-bold d-flex justify-content-between align-items-center"
+            >
+              Suppliers List
+              <button
+                *ngIf="role === 'Admin'"
+                class="btn btn-success"
+                type="button"
+                [routerLink]="['/dashboard/addsupplier']"
+              >
+                Add New Supplier
+              </button>
+            </p>
+          </div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Supplier Id</th>
+                  <th>Name</th>
+                  <th>Location</th>
+                  <th>Phone Number</th>
+                  <th *ngIf="role === 'Admin'">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let supplier of suppliers">
+                  <td>{{ supplier.supplierId }}</td>
+                  <td>{{ supplier.name }}</td>
+                  <td>{{ supplier.location }}</td>
+                  <td>{{ supplier.phoneNo }}</td>
+                  <td *ngIf="role === 'Admin'">
+                    <button
+                      (click)="updateSupplier(supplier.supplierId)"
+                      class="btn btn-primary"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<br />

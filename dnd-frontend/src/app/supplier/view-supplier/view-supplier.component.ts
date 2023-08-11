@@ -10,7 +10,27 @@ import { Supplier } from 'src/app/models/supplier.model';
 })
 export class ViewSupplierComponent implements OnInit {
   supplier!: Supplier;
-  suppliers!: Supplier[];
+  suppliers: Supplier[] = [
+    {
+      supplierId: 1,
+      name: 'Supplier A',
+      location: 'Location X',
+      phoneNo: '123-456-7890',
+    },
+    {
+      supplierId: 2,
+      name: 'Supplier B',
+      location: 'Location Y',
+      phoneNo: '987-654-3210',
+    },
+    {
+      supplierId: 3,
+      name: 'Supplier C',
+      location: 'Location Z',
+      phoneNo: '555-555-5555',
+    },
+    // Add more Supplier objects here
+  ];
   role: any = 'Admin';
   constructor(private service: SupplierService, private router: Router) {}
   ngOnInit(): void {
