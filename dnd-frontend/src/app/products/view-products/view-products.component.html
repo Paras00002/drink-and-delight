@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <div class="container-fluid">
+        <div class="container">
+  <!-- Stylish Header -->
+  <div class="row mb-3">
+    <div class="col-md-12 text-center">
+      <h1 class="display-4">Products</h1>
+    </div>
+  </div>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p
+              class="text-primary m-0 font-weight-bold d-flex justify-content-between align-items-center"
+            >
+              Products
+              <button
+                *ngIf="role === 'Admin'"
+                class="btn btn-primary"
+                type="button"
+                (click)="navigate()"
+              >
+                Add Products
+              </button>
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 text-nowrap">
+                <div
+                  id="dataTable_length"
+                  class="dataTables_length"
+                  aria-controls="dataTable"
+                ></div>
+              </div>
+              <div class="col-md-6">
+                <div
+                  class="text-md-right dataTables_filter"
+                  id="dataTable_filter"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="table-responsive table mt-2"
+              id="dataTable"
+              role="grid"
+              aria-describedby="dataTable_info"
+            >
+              <table class="table my-0" id="dataTable">
+                <thead class="bg-primary text-white">
+                  <tr>
+                    <!-- <th scope="col">Id</th> -->
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Units</th>
+                    <th scope="col">Warehouse Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products">
+                    <!-- <th scope="row">{{product.productId}}</th> -->
+                    <td>{{ product.materialName }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>
+                      {{ product.quantityAvailable }}
+                    </td>
+                    <td>{{ product.quantityUnit }}</td>
+                    <td>{{ product.warehouse.name }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

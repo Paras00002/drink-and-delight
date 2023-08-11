@@ -4,9 +4,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class WarehouseService {
-  fetchAllWarehouse(): Observable<any> {
+export class ProductOrderService {
+  fetchAllProductOrders(): Observable<any> {
     throw new Error('Method not implemented.');
   }
+
   constructor() {}
 }

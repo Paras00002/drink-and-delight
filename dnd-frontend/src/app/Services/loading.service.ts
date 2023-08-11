@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class LoadingService {
-  public loading = false;
-
-  constructor() {}
-
-  enableLoading() {
-    this.loading = true;
-  }
-
   disableLoading() {
-    this.loading = false;
+    throw new Error('Method not implemented.');
   }
+  enableLoading() {
+    throw new Error('Method not implemented.');
+  }
+
+  constructor() { }
 }

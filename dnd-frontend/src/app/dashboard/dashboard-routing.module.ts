@@ -6,6 +6,8 @@ import { AddSupplierComponent } from '../supplier/add-supplier/add-supplier.comp
 import { ViewDistributorComponent } from '../distributer/view-distributor/view-distributor.component';
 import { AddDistributorComponent } from '../distributer/add-distributor/add-distributor.component';
 import { UpdateDistributorComponent } from '../distributer/update-distributor/update-distributor.component';
+import { ViewProductOrdersComponent } from '../products/view-product-orders/view-product-orders.component';
+import { ViewProductsComponent } from '../products/view-products/view-products.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,8 @@ const routes: Routes = [
     children: [
       { path: 'distributors', component: ViewDistributorComponent },
       { path: 'adddistributors', component: AddDistributorComponent },
+      { path: 'productorders', component: ViewProductOrdersComponent },
+      { path: 'products', component: ViewProductsComponent },
       { path: 'updatedistributor/:id', component: UpdateDistributorComponent },
       {
         path: 'suppliers',

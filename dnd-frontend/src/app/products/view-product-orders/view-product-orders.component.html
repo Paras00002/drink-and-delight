@@ -1,0 +1,85 @@
+
+
+<div class="container">
+  <!-- Stylish Header -->
+  <div class="row mb-3">
+    <div class="col-md-12 text-center">
+      <h1 class="display-4">Ordered Products</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Filter Input Field and Button -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Filter" />
+      </div>
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary float-right">
+          + Purchase new Products
+        </button>
+      </div>
+    </div>
+
+    <!-- Table to Display Ordered Products -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Ordered On</th>
+          <th>Distributor</th>
+          <th>Quantity</th>
+          <th>Order Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through ordered products and generate rows -->
+        <tr *ngFor="let element of dataSource">
+          <td>{{ element.productOrderId }}</td>
+          <td>{{ element.productName }}</td>
+          <td>
+            {{ "Rs. " + element.pricePerUnit + "/" + element.measurementUnit }}
+          </td>
+          <td>{{ element.orderedOn | date }}</td>
+          <td>{{ element.distributorName }}</td>
+          <td>{{ element.quantity + " " + element.measurementUnit + "s" }}</td>
+          
+          <td>
+            
+
+            <button
+              *ngIf="element.orderStatus === 'Processing'"
+              class="btn btn-sm btn-primary"
+              (click)="updateStatus(element)"
+            >{{ element.orderStatus }}</button>
+            
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Paginator for Pagination (Bootstrap style) -->
+    <!-- Commented out, as pagination is not implemented -->
+    <!-- <div class="row">
+    <div class="col-md-12">
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="prevPage()" href="#">Previous</a>
+          </li>
+          <li class="page-item">
+            <span class="page-link">
+              Page {{ currentPage }} of {{ totalPages }}
+            </span>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="nextPage()" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div> -->
+  </div>
+</div>

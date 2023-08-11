@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthModule } from './auth/auth.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,8 @@ import { AuthModule } from './auth/auth.module';
     HttpClientModule,
     DashboardModule,
     AuthModule,
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

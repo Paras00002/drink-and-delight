@@ -8,12 +8,24 @@ import { UpdateSupplierComponent } from '../supplier/update-supplier/update-supp
 import { NavBarComponent } from '../shared/nav-bar/nav-bar.component';
 import { AuthComponent } from '../auth/auth.component';
 import { DashboardComponent } from './dashboard.component';
-import { SharedModule } from '../shared/shared.module';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddDistributorComponent } from '../distributer/add-distributor/add-distributor.component';
 import { ViewDistributorComponent } from '../distributer/view-distributor/view-distributor.component';
 import { UpdateDistributorComponent } from '../distributer/update-distributor/update-distributor.component';
+
+import { UpdateStatusComponent } from '../shared/update-status/update-status.component';
+import { ViewProductOrdersComponent } from '../products/view-product-orders/view-product-orders.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DataSource } from '@angular/cdk/collections';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatIconAnchor, MatIconButton } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ViewProductsComponent } from '../products/view-products/view-products.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +38,10 @@ import { UpdateDistributorComponent } from '../distributer/update-distributor/up
     AddDistributorComponent,
     ViewDistributorComponent,
     UpdateDistributorComponent,
+    // AddProductComponent,
+    UpdateStatusComponent,
+    ViewProductOrdersComponent,
+    ViewProductsComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +49,14 @@ import { UpdateDistributorComponent } from '../distributer/update-distributor/up
     FormsModule,
     HttpClientModule,
     DashboardRoutingModule,
-    SharedModule,
+    // SharedModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatFormFieldModule,
+    // MatTableDataSource,
+    MatTableModule,
+    MatIconModule,
+    MatDialogModule,
   ],
 })
 export class DashboardModule {}

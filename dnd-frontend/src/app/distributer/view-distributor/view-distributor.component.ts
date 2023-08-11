@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/Services/auth.service';
-import { DistributorService } from 'src/app/Services/distributor.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { DistributorService } from 'src/app/services/distributor.service';
 import { Distributor } from 'src/app/models/distributor.model';
 
 @Component({
