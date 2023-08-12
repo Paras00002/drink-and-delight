@@ -42,7 +42,7 @@ export class ViewSupplierComponent implements OnInit {
   ngOnInit(): void {
     this.role = this.authService.getRole();
     this.supplierService
-      .fetchAllSupplier()
+      .fetchAllSuppliers()
       .subscribe((response: Supplier[]) => {
         this.suppliers = response;
       });

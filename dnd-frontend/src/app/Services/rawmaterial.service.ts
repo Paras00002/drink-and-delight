@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,11 +11,11 @@ export class RawmaterialService {
 
   constructor(private http: HttpClient) {}
 
-  fetchAllRawmaterials() {
+  fetchAllRawmaterials(): Observable<any> {
     return this.http.get(this.serviceUrl + '/rawMaterialStock');
   }
 
-  createRawMaterial(formData) {
+  createRawMaterial(formData: any) {
     return this.http.post(this.serviceUrl + '/rawMaterialStock', formData);
   }
 }

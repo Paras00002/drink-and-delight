@@ -1,25 +1,33 @@
-import { Injectable } from '@angular/core';
-import { Supplier } from '../models/supplier.model';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SupplierService {
-  serviceUrl = '';
+  serviceUrl =
+    environment.protocol +
+    environment.applicationUrl +
+    '/' +
+    environment.supplierService;
 
   constructor(private http: HttpClient) {}
-  updateSupplier(supplier: Supplier) {
-    throw new Error('Method not implemented.');
+
+  fetchAllSuppliers(): Observable<any> {
+    return this.http.get(this.serviceUrl + '/supplier');
   }
-  fetchById(id: number) {
-    throw new Error('Method not implemented.');
+
+  addSupplier(formData: any) {
+    return this.http.post(this.serviceUrl + '/supplier', formData);
   }
-  fetchAllSupplier(): Observable<any> {
-    throw new Error('Method not implemented.');
+
+  updateSupplier(formData: any) {
+    return this.http.put(this.serviceUrl + '/supplier', formData);
   }
-  addSupplier(formData: Supplier) {
-    formData;
+
+  fetchById(id: any) {
+    return this.http.get(this.serviceUrl + '/supplier/' + id);
   }
 }

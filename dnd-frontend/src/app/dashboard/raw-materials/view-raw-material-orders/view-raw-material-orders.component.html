@@ -1,0 +1,71 @@
+<h1>Raw Material Orders</h1>
+<div class="mat-elevation-z8">
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          (input)="doFilter($event)"
+          placeholder="Filter"
+        />
+      </div>
+      <button
+        class="btn btn-primary float-right"
+        [routerLink]="['/dashboard/addrawmaterialorder']"
+        type="button"
+      >
+        + Purchase new Raw Materials
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="table-header row">
+      <div class="col">Order ID</div>
+      <div class="col">Material</div>
+      <div class="col">Price</div>
+      <div class="col">Ordered On</div>
+      <div class="col">Supplier</div>
+      <div class="col">Quantity Purchased</div>
+      <div class="col">Options</div>
+    </div>
+
+    <div *ngFor="let element of rawMaterialOrders" class="table-row row">
+      <div class="col">{{ element.rawMaterialOrderId }}</div>
+      <div class="col">{{ element.materialName }}</div>
+      <div class="col">
+        {{ "Rs. " + element.pricePerUnit + "/" + element.measurementUnit }}
+      </div>
+      <div class="col">{{ element.orderedOn | date }}</div>
+      <div class="col">{{ element.supplierName }}</div>
+      <div class="col">
+        {{ element.quantity + " " + element.measurementUnit + "s" }}
+      </div>
+      <div class="col">
+        {{ element.orderStatus }}
+        <button
+          *ngIf="element.orderStatus === 'Processing'"
+          class="btn btn-primary"
+          (click)="updateStatus(element)"
+          aria-label="Edit Status"
+        >
+          <i class="fas fa-edit"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav aria-label="Pagination">
+    <ul class="pagination">
+      <li
+        class="page-item"
+        *ngFor="let pageSizeOption of [5, 10, 20]; let i = index"
+      >
+        <button class="page-link" (click)="changePageSize(pageSizeOption)">
+          {{ pageSizeOption }}
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>

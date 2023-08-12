@@ -1,0 +1,61 @@
+<h1>Users</h1>
+<div class="spinner-container">
+  <!-- Add your loading spinner here if needed -->
+</div>
+<div class="card mt-4">
+  <div class="card-body">
+    <form class="form-inline mb-2">
+      <div class="form-group">
+        <input
+          class="form-control mr-2"
+          type="text"
+          (input)="doFilter($event)"
+          placeholder="Filter"
+        />
+      </div>
+      <button
+        class="btn btn-primary"
+        [routerLink]="['/dashboard/adduser']"
+        type="button"
+      >
+        + Add User
+      </button>
+    </form>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Phone No.</th>
+          <th>City</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let element of dataSource">
+          <td>{{ element.userId }}</td>
+          <td>{{ element.username }}</td>
+          <td>{{ element.firstName + " " + element.lastName }}</td>
+          <td>{{ element.role }}</td>
+          <td>{{ element.phoneNo }}</td>
+          <td>{{ element.address.city }}</td>
+          <td>
+            <a
+              class="btn btn-primary btn-sm"
+              [routerLink]="['/dashboard/editprofile', element.userId]"
+            >
+              <i class="fas fa-edit"></i> Edit
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <mat-paginator
+      [length]="dataSource.data.length"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    ></mat-paginator> -->
+  </div>
+</div>

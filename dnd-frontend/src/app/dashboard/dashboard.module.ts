@@ -31,6 +31,12 @@ import { AddProductsOrdersComponent } from '../products/add-products-orders/add-
 import { AddProductComponent } from '../products/add-products/add-products.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AddUserComponent } from '../users/add-user/add-user.component';
+import { ViewUsersComponent } from '../users/view-users/view-users.component';
+import { AddRawMaterialComponent } from './raw-materials/add-raw-material/add-raw-material.component';
+import { ViewRawMaterialComponent } from './raw-materials/view-raw-material/view-raw-material.component';
+import { AddRawMaterialOrderComponent } from './raw-materials/add-raw-material-order/add-raw-material-order.component';
+import { ViewRawMaterialOrdersComponent } from './raw-materials/view-raw-material-orders/view-raw-material-orders.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +56,12 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     AddProductsOrdersComponent,
     ViewProfileComponent,
     EditProfileComponent,
+    AddUserComponent,
+    ViewUsersComponent,
+    AddRawMaterialComponent,
+    AddRawMaterialOrderComponent,
+    ViewRawMaterialComponent,
+    ViewRawMaterialOrdersComponent,
   ],
   imports: [
     CommonModule,
