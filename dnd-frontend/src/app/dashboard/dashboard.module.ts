@@ -29,6 +29,8 @@ import { ViewProductsComponent } from '../products/view-products/view-products.c
 
 import { AddProductsOrdersComponent } from '../products/add-products-orders/add-products-orders.component';
 import { AddProductComponent } from '../products/add-products/add-products.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { AddProductComponent } from '../products/add-products/add-products.compo
     ViewProductsComponent,
     AddProductComponent,
     AddProductsOrdersComponent,
+    ViewProfileComponent,
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,

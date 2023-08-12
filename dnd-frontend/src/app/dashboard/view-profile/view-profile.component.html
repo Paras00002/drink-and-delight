@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow">
+        <div class="card-header py-3">
+          <div class="panel-heading row">
+            <h2 class="col panel-title display-4">
+              <b>{{ user?.firstName }} {{ user?.lastName }}</b>
+            </h2>
+            <div class="col-2 text-end">
+              <button
+                type="submit"
+                class="btn btn-primary float-right"
+                [routerLink]="['/dashboard/editprofile']"
+              >
+                Edit
+              </button>
+            </div>
+          </div>
+          <hr />
+        </div>
+
+        <div class="card-body">
+          <table
+            class="table table-user-information table-hover table-borderless"
+          >
+            <tbody>
+              <tr>
+                <td class="title">User ID</td>
+                <td class="userdata">{{ user?.userId }}</td>
+              </tr>
+              <tr>
+                <td class="title">Username</td>
+                <td class="userdata">{{ user?.username }}</td>
+              </tr>
+              <tr>
+                <td class="title">Date of Birth</td>
+                <td class="userdata">{{ user?.dob }}</td>
+              </tr>
+              <tr>
+                <td class="title">Gender</td>
+                <td class="userdata">{{ user?.gender }}</td>
+              </tr>
+              <tr>
+                <td class="title">Designation</td>
+                <td class="userdata">{{ user?.designation }}</td>
+              </tr>
+              <tr>
+                <td class="title">Phone Number</td>
+                <td class="userdata">{{ user?.phoneNo }}</td>
+              </tr>
+              <tr>
+                <td class="title">Address</td>
+                <td class="userdata">
+                  {{ user?.address?.area }}, {{ user?.address?.city }},
+                  {{ user?.address?.state }}, {{ user?.address?.pincode }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

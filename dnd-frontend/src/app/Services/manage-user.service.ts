@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +15,15 @@ export class ManageUserService {
     return this.http.get(`${this.authServiceUrl}/register`);
   }
 
-  updateUser(formData:any) {
+  updateUser(formData: any) {
     return this.http.put(`${this.authServiceUrl}/register`, formData);
   }
 
-  addUser(formData:any) {
+  addUser(formData: any) {
     return this.http.post(`${this.authServiceUrl}/register`, formData);
   }
 
-  fetchById(id:any) {
+  fetchById(id: any): Observable<any> {
     return this.http.get(`${this.authServiceUrl}/register/${id}`);
   }
 }

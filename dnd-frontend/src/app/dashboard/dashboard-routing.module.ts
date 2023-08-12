@@ -11,6 +11,8 @@ import { ViewProductsComponent } from '../products/view-products/view-products.c
 import { UpdateSupplierComponent } from '../supplier/update-supplier/update-supplier.component';
 import { AddProductComponent } from '../products/add-products/add-products.component';
 import { AddProductsOrdersComponent } from '../products/add-products-orders/add-products-orders.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -30,7 +32,8 @@ const routes: Routes = [
         component: ViewSupplierComponent,
         children: [],
       },
-
+      { path: 'viewprofile', component: ViewProfileComponent },
+      { path: 'editprofile', component: EditProfileComponent },
       { path: 'addsupplier', component: AddSupplierComponent, children: [] },
     ],
   },
