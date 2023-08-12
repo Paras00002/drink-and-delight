@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <div class="container-fluid">
+        <div class="container">
+          <!-- Stylish Header -->
+          <div class="row mb-3">
+            <div class="col-md-12 text-center">
+              <h1 class="display-4">Add Product</h1>
+            </div>
+          </div>
+          <div class="card shadow">
+            <div class="card-header py-3">
+              <p
+                class="text-primary m-0 font-weight-bold d-flex justify-content-between align-items-center"
+              >
+                Details
+              </p>
+            </div>
+            <div class="card-body">
+              <form (ngSubmit)="saveProduct(addForm.value)" #addForm="ngForm">
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="product">Product Name</label>
+                      <input
+                        [(ngModel)]="product.materialName"
+                        type="text"
+                        placeholder="Product Name"
+                        name="materialName"
+                        required
+                        #materialName="ngModel"
+                        class="form-control"
+                      />
+                      <div
+                        *ngIf="
+                          materialName.errors &&
+                          materialName.invalid &&
+                          materialName.touched
+                        "
+                      >
+                        <small
+                          *ngIf="materialName.errors?.['required']"
+                          class="text-danger"
+                        >
+                          Material Name is a required field
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <input
+                        [(ngModel)]="product.description"
+                        type="text"
+                        placeholder="Description"
+                        required
+                        name="description"
+                        #description="ngModel"
+                        class="form-control"
+                      />
+                      <div
+                        *ngIf="
+                          description.errors &&
+                          description.invalid &&
+                          description.touched
+                        "
+                      >
+                        <small
+                          *ngIf="description.errors?.['required']"
+                          class="text-danger"
+                        >
+                          Description is a required field
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="quantity">Quantity</label>
+                      <input
+                        type="number"
+                        [(ngModel)]="product.quantityAvailable"
+                        name="quantityAvailable"
+                        disabled
+                        value="0"
+                        placeholder="0"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="quantityUnit">Quantity Unit</label>
+                      <select
+                        name="quantityUnit"
+                        required
+                        [(ngModel)]="product.quantityUnit"
+                        #quantityUnit="ngModel"
+                        class="form-control"
+                      >
+                        <optgroup label="Quantity Parameters">
+                          <option value="Litre" selected="">Litre</option>
+                          <option value="Kilogram">Kilogram</option>
+                        </optgroup>
+                      </select>
+                      <div *ngIf="quantityUnit.errors && quantityUnit.invalid">
+                        <small
+                          *ngIf="quantityUnit.errors?.['required']"
+                          class="text-danger"
+                        >
+                          Quantity Unit is a required field
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="warehouseId">Warehouse</label>
+                      <select
+                        name="warehouseId"
+                        [(ngModel)]="warehouseId"
+                        required
+                        class="form-control"
+                      >
+                        <optgroup label="Select Warehouses">
+                          <option
+                            *ngFor="let warehouse of warehouses"
+                            [value]="warehouse.warehouseId"
+                            selected=""
+                          >
+                            {{ warehouse.name }}
+                          </option>
+                        </optgroup>
+                      </select>
+                      <div *ngIf="warehouseId.errors && warehouseId.invalid">
+                        <small
+                          *ngIf="warehouseId.errors?.required"
+                          class="text-danger"
+                        >
+                          Warehouse ID is a required field
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group text-center">
+                      <button
+                        type="submit"
+                        name="submit"
+                        class="btn btn-primary"
+                      >
+                        ADD PRODUCT
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

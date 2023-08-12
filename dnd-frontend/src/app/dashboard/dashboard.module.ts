@@ -27,6 +27,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ViewProductsComponent } from '../products/view-products/view-products.component';
 
+import { AddProductsOrdersComponent } from '../products/add-products-orders/add-products-orders.component';
+import { AddProductComponent } from '../products/add-products/add-products.component';
+
 @NgModule({
   declarations: [
     AddSupplierComponent,
@@ -38,10 +41,11 @@ import { ViewProductsComponent } from '../products/view-products/view-products.c
     AddDistributorComponent,
     ViewDistributorComponent,
     UpdateDistributorComponent,
-    // AddProductComponent,
     UpdateStatusComponent,
     ViewProductOrdersComponent,
     ViewProductsComponent,
+    AddProductComponent,
+    AddProductsOrdersComponent,
   ],
   imports: [
     CommonModule,

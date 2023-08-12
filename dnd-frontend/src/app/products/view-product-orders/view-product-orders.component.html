@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <!-- Stylish Header -->
   <div class="row mb-3">
@@ -15,7 +13,11 @@
         <input type="text" class="form-control" placeholder="Filter" />
       </div>
       <div class="col-md-6">
-        <button type="button" class="btn btn-primary float-right">
+        <button
+          type="button"
+          class="btn btn-primary float-right"
+          [routerLink]="['/dashboard/addproductorder']"
+        >
           + Purchase new Products
         </button>
       </div>
@@ -45,16 +47,15 @@
           <td>{{ element.orderedOn | date }}</td>
           <td>{{ element.distributorName }}</td>
           <td>{{ element.quantity + " " + element.measurementUnit + "s" }}</td>
-          
-          <td>
-            
 
+          <td>
             <button
               *ngIf="element.orderStatus === 'Processing'"
               class="btn btn-sm btn-primary"
               (click)="updateStatus(element)"
-            >{{ element.orderStatus }}</button>
-            
+            >
+              {{ element.orderStatus }}
+            </button>
           </td>
         </tr>
       </tbody>

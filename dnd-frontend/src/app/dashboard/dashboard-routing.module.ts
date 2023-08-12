@@ -9,6 +9,8 @@ import { UpdateDistributorComponent } from '../distributer/update-distributor/up
 import { ViewProductOrdersComponent } from '../products/view-product-orders/view-product-orders.component';
 import { ViewProductsComponent } from '../products/view-products/view-products.component';
 import { UpdateSupplierComponent } from '../supplier/update-supplier/update-supplier.component';
+import { AddProductComponent } from '../products/add-products/add-products.component';
+import { AddProductsOrdersComponent } from '../products/add-products-orders/add-products-orders.component';
 
 const routes: Routes = [
   {
@@ -18,7 +20,9 @@ const routes: Routes = [
       { path: 'distributors', component: ViewDistributorComponent },
       { path: 'adddistributors', component: AddDistributorComponent },
       { path: 'productorders', component: ViewProductOrdersComponent },
+      { path: 'addproductorder', component: AddProductsOrdersComponent },
       { path: 'products', component: ViewProductsComponent },
+      { path: 'addproduct', component: AddProductComponent },
       { path: 'updatedistributor/:id', component: UpdateDistributorComponent },
       { path: 'updatesupplier/:id', component: UpdateSupplierComponent },
       {

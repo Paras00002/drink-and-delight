@@ -1,0 +1,144 @@
+
+<div class="container">
+  <div class="d-flex flex-column" id="content-wrapper">
+    <div id="content">
+      <div class="container-fluid">
+        <h3 class="text-dark mb-4">Create Product Order</h3>
+        <div class="card shadow">
+          <div class="card-header py-3">
+            <p class="text-primary m-0 font-weight-bold">Details</p>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="placeOrder()" #addForm="ngForm">
+              <div class="form-row">
+                <div class="col">
+                  <label for="distributor" class="font-weight-bold"
+                    >Product</label
+                  >
+                  <select
+                    class="form-control"
+                    name="material"
+                    ngModel
+                    #materialName="ngModel"
+                    required
+                  >
+                    <!-- (change)="selectProduct($event?.target?.value)" -->
+                    <optgroup label="This is a group">
+                      <option value="" disabled selected>Select Product</option>
+                      <option *ngFor="let d of products" [value]="d.productId">
+                        {{ d.materialName }}
+                      </option>
+                    </optgroup>
+                  </select>
+                  <div
+                    *ngIf="
+                      materialName.errors &&
+                      materialName.invalid &&
+                      materialName.touched
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="materialName.errors?.['required']"
+                    >
+                      Product Name is a required field
+                    </small>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group">
+                    <label for="distributor" class="font-weight-bold"
+                      >Distributor</label
+                    >
+                    <select
+                      class="form-control"
+                      ngModel
+                      (change)="getSelectedOptionText($event)"
+                      name="distributor"
+                      #dist="ngModel"
+                      required
+                    >
+                      <optgroup label="This is a group">
+                        <option value="" disabled selected>
+                          Select Distributor
+                        </option>
+                        <option
+                          *ngFor="let d of distributor"
+                          [value]="d.distributorId"
+                        >
+                          {{ d.name }}
+                        </option>
+                      </optgroup>
+                    </select>
+                    <div *ngIf="dist.errors && dist.invalid && dist.touched">
+                      <small
+                        class="text-danger"
+                        *ngIf="dist.errors?.['required']"
+                      >
+                        Distributor Name is a required field
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Remaining form rows... -->
+
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="phoneNo" class="font-weight-bold"
+                      >Enter the price PerUnit</label
+                    >
+                    <input
+                      [(ngModel)]="price"
+                      name="pricerate"
+                      placeholder="Enter the Price"
+                      class="form-control"
+                      required
+                      pattern="^(?:[1-9][0-9]{3}|[1-9][0-9]{2}|[1-9][0-9]|[1-9])$"
+                      #pricerate="ngModel"
+                      ngModel
+                      required
+                    />
+                    <div
+                      *ngIf="
+                        pricerate.touched &&
+                        pricerate.dirty &&
+                        pricerate.invalid
+                      "
+                      class="alert alert-primary"
+                    >
+                      Please enter a valid price range (1-9999).
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <div class="form-group">
+                    <label for="dob" class="font-weight-bold">Unit</label>
+                    <input
+                      [value]="unit"
+                      name="unit"
+                      class="form-control"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="!addForm.valid"
+              >
+                PLACED ORDER
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

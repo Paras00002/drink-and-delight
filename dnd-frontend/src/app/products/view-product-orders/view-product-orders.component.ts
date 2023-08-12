@@ -101,7 +101,8 @@ export class ViewProductOrdersComponent implements OnInit {
 
   ngOnInit(): void {
     // Fetching data from service could be done here if needed
-    // this.fetchAllProductOrders();
+    this.fetchAllProductOrders();
+    console.log('viewproductcomponent');
   }
 
   fetchAllProductOrders() {
@@ -114,12 +115,12 @@ export class ViewProductOrdersComponent implements OnInit {
       });
   }
 
-  doFilter(filterValue: string) {
+  doFilter(event: any) {
     // Implement filtering logic here
   }
 
   ngOnDestroy(): void {
-    this.userSubscription.unsubscribe();
+    // this.userSubscription.unsubscribe();
   }
 
   updateStatus(element: any) {

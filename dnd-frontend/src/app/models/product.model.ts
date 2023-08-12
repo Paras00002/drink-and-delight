@@ -5,6 +5,6 @@ export class Product {
   productId!: number;
   description!: string;
   quantityAvailable!: number;
-  quantityUnit!: string;
+  quantityUnit!: any;
   warehouse!: Warehouse;
 }
