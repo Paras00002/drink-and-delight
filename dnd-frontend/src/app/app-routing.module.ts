@@ -9,6 +9,7 @@ const routes: Routes = [
   // {path:'profile',component:CustomaerComponent},
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: DashboardComponent },
 ];
 
 @NgModule({

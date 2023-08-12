@@ -1,10 +1,4 @@
-/**
- * @author Gagandeep Singh
- * @email singh.gagandeep3911@gmail.com
- * @create date 2020-11-05 03:12:11
- * @modify date 2020-11-05 03:12:11
- * @desc Add user
- */
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
