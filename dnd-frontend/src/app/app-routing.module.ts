@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddSupplierComponent } from './supplier/add-supplier/add-supplier.component';
-import { ViewSupplierComponent } from './supplier/view-supplier/view-supplier.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 

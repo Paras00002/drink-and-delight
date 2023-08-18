@@ -238,7 +238,8 @@
                       class="custom-select"
                     >
                       <option
-                        *ngFor="let s of genders | keyvalue"
+                        *ngFor="let s of genders | 
+                        keyvalue"
                         [value]="s.key"
                       >
                         {{ s.value }}

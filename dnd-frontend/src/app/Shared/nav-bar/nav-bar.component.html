@@ -1,27 +1,27 @@
 <div id="wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <div class="container-fluid d-flex flex-column p-0">
         <a id="logo" class="navbar-brand" [routerLink]="['/dashboard']">
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-cocktail"></i>
           </div>
-          <div class="sidebar-brand-text mx-3"><span>Drink & Delight</span></div>
+          <div class="sidebar-brand-text mx-3 text-white"><span>Drink & Delight</span></div>
         </a>
         <hr class="nav-hr" />
         <a id="role" class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" [routerLink]="['/dashboard']">
           <div class="sidebar-brand-icon rotate-n-15"></div>
-          <div class="sidebar-brand-text mx-3">Welcome, </div>
+          <div class="sidebar-brand-text mx-3 text-white text-white">Welcome{{user.username}}</div>
         </a>
         <hr class="nav-hr" />
         <ul class="nav navbar-nav text-light" id="accordionSidebar">
           <li class="nav-item" *ngFor="let item of navLinks">
             <a class="nav-link" [routerLink]="[item.route]">
-              <i [class]="item.class"></i><span> {{ item.label }} </span>
+              <span class="text-white"> {{ item.label }} </span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="cursor: pointer">
-              <i class="fas fa-sign-out-alt"></i><span>Sign Out</span>
+              <i class="fas fa-sign-out-alt"></i><span class="text-white">Sign Out</span>
             </a>
           </li>
         </ul>
