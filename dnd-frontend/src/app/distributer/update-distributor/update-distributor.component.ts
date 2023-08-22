@@ -26,17 +26,18 @@ export class UpdateDistributorComponent implements OnInit {
     this.distributor = new Distributor(); // Create a new Distributor instance
 
     // Get the 'id' parameter from the route snapshot
-    // this.id = this.route.snapshot.params['id'];
-    this.route.queryParams.subscribe((qp) => {
-      console.log('hell o+' + qp['ids']);
-      this.id = +qp['ids'];
-    });
-    console.log('hellooo ' + this.id);
+    this.id = this.route.snapshot.params['id'];
+    // this.route.queryParams.subscribe((qp) => {
+    //   console.log('hell o+' + qp['ids']);
+    //   this.id = +qp['ids'];
+    // });
+    console.log("🤣😂")
 
     // Fetch distributor details by ID from the service
     this.service.fetchById(this.id).subscribe(
       (data: Distributor) => {
         console.log(data); // Log retrieved distributor data
+        console.log("🤣🤦‍♀️")
         this.distributor = data; // Assign retrieved data to 'distributor' property
       },
       (error) => console.log(error) // Handle errors by logging them
@@ -49,6 +50,7 @@ export class UpdateDistributorComponent implements OnInit {
     this.service.updateDistributor(this.distributor).subscribe(
       (data) => {
         this.distributor = new Distributor(); // Create a new Distributor instance
+        console.log("🤣😂😂😊😊🤦‍♀️")
         this.gotoList(); // Navigate back to the distributor list
       },
       (error) => console.log(error) // Handle errors by logging them

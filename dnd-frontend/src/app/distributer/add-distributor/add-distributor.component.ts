@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { DistributorService } from 'src/app/services/distributor.service';
 import { Distributor } from 'src/app/models/distributor.model';
@@ -9,7 +9,7 @@ import { Distributor } from 'src/app/models/distributor.model';
   styleUrls: ['./add-distributor.component.css'],
 })
 export class AddDistributorComponent implements OnInit {
-  distributor!: Distributor;
+  @Input() distributor!: Distributor;
   // submitted: boolean = false;
   constructor(private service: DistributorService, private router: Router) {
     this.distributor = new Distributor();
@@ -18,9 +18,11 @@ export class AddDistributorComponent implements OnInit {
   ngOnInit(): void {}
 
   addDistributor() {
-    // this.service.addDistributor(this.distributor).subscribe((res: any) => {
-    //   this.router.navigate(['/dashboard/distributors']);
-    // });
+    this.service.addDistributor(this.distributor).subscribe((res: Distributor) => {
+      console.log(res);
+      console.log("💕💕💕")
+      this.router.navigate(['/dashboard/distributors']);
+    });
     // this.submitted = true;
   }
 }
