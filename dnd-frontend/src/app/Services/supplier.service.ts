@@ -17,19 +17,19 @@ export class SupplierService {
   constructor(private http: HttpClient) {}
 
   fetchAllSuppliers(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>('http://localhost:8080/supplier');
+    return this.http.get<Supplier[]>('http://localhost:8081/supplier');
   }
 
   addSupplier(formData: Supplier): Observable<Supplier>  {
     console.log('product add service called ');
-    return this.http.post<Supplier>('http://localhost:8080/supplier/addsupplier', formData);
+    return this.http.post<Supplier>('http://localhost:8081/supplier/addsupplier', formData);
   }
 
   updateSupplier(formData: any): Observable<any> {
-    return this.http.put('http://localhost:8080/supplier/updatesupplier', formData);
+    return this.http.put('http://localhost:8081/supplier/updatesupplier', formData);
   }
 
   fetchById(id: any): Observable<any>  {
-    return this.http.get('http://localhost:8080/supplier/' + id);
+    return this.http.get('http://localhost:8081/supplier/' + id);
   }
 }
