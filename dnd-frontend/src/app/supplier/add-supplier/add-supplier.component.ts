@@ -16,6 +16,7 @@ export class AddSupplierComponent {
   }
 
   addSupplier() {
-    this.service.addSupplier(this.supplier);
+    this.service.addSupplier(this.supplier).subscribe((Response:Supplier)=>{console.log(Response);console.log("niiga")})
+    
   }
 }

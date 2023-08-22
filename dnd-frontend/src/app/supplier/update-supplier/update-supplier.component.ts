@@ -14,7 +14,7 @@ export class UpdateSupplierComponent {
   id!: number;
   supplier!: Supplier;
   constructor(
-    //private route: ActivatedRoute,
+    private route: ActivatedRoute,
     private service: SupplierService,
     private router: Router
   ) {}
@@ -22,28 +22,27 @@ export class UpdateSupplierComponent {
   ngOnInit(): void {
     this.supplier = new Supplier();
 
-    //this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
 
-    this.service.fetchById(this.id);
-    // .subscribe(
-    //   (data: Supplier) => {
-    //     console.log(data);
-    //     this.supplier = data;
-    //   },
-    //   (error: any) => console.log(error)
-    // );
+    this.service.fetchById(this.id).subscribe(
+      (data: Supplier) => {
+        console.log(data);
+        this.supplier = data;
+      },
+      (error: any) => console.log(error)
+    );
   }
 
   updateSupplier() {
-    this.service.updateSupplier(this.supplier);
-    // .subscribe(
-    //   (data:Supplier) => {
-    //     console.log(data);
-    //     this.supplier = new Supplier();
-    //     this.gotoList();
-    //   },
-    //   (error:any) => console.log(error)
-    // );
+    this.service.updateSupplier(this.supplier).subscribe(
+      (data:Supplier) => {
+        console.log(data);
+        console.log("data jiiii❤❤🤣🤣🤣");
+        this.supplier = new Supplier();
+        this.gotoList();
+      },
+      (error:any) => console.log(error)
+    );
   }
   onSubmit() {
     this.updateSupplier();
