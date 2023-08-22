@@ -11,27 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ViewSupplierComponent implements OnInit {
   supplier!: Supplier;
-  suppliers: Supplier[] = [
-    {
-      supplierId: 1,
-      name: 'Supplier A',
-      location: 'Location X',
-      phoneNo: '123-456-7890',
-    },
-    {
-      supplierId: 2,
-      name: 'Supplier B',
-      location: 'Location Y',
-      phoneNo: '987-654-3210',
-    },
-    {
-      supplierId: 3,
-      name: 'Supplier C',
-      location: 'Location Z',
-      phoneNo: '555-555-5555',
-    },
-    // Add more Supplier objects here
-  ];
+  suppliers!: Supplier[];
   role: any = 'Admin';
   constructor(
     private supplierService: SupplierService,
@@ -40,11 +20,12 @@ export class ViewSupplierComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.role = this.authService.getRole();
+    // this.role = this.authService.getRole();
     this.supplierService
       .fetchAllSuppliers()
       .subscribe((response: Supplier[]) => {
         this.suppliers = response;
+        console.log(response);
       });
   }
   reload() {
