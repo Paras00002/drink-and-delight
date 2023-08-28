@@ -18,44 +18,7 @@ import { ManageUserService } from 'src/app/services/manage-user.service';
   styleUrls: ['./view-users.component.css'],
 })
 export class ViewUsersComponent implements OnInit, OnDestroy {
-  dataSource: UserDetails[] = [
-    {
-      userId: '1',
-      username: 'user1',
-      role: 'admin',
-      designation: 'Manager',
-      gender: 'Male',
-      emailId: 'user1@example.com',
-      phoneNo: '123-456-7890',
-      dob: '1990-01-01',
-      address: {
-        city: 'Faridabad',
-        state: 'Haryana',
-        area: 'Sector 1',
-        pincode: '121001',
-      },
-      firstName: 'John',
-      lastName: 'Doe',
-    },
-    {
-      userId: '2',
-      username: 'user2',
-      role: 'user',
-      designation: 'Developer',
-      gender: 'Female',
-      emailId: 'user2@example.com',
-      phoneNo: '987-654-3210',
-      dob: '1995-05-15',
-      address: {
-        city: 'Faridabad',
-        state: 'Haryana',
-        area: 'Sector 2',
-        pincode: '121002',
-      },
-      firstName: 'Jane',
-      lastName: 'Smith',
-    },
-  ];
+  dataSource: UserDetails[] = [];
   displayedColumns: string[] = [
     'userId',
     'username',
@@ -77,13 +40,11 @@ export class ViewUsersComponent implements OnInit, OnDestroy {
   }
 
   fetchAllUsers() {
-    // this.loadingService.enableLoading();
-    // this.userSubscription = this.manageUserService
-    //   .fetchAllUsers()
-    //   .subscribe((response: UserDetails[]) => {
-    //     this.dataSource = response;
-    //     this.loadingService.disableLoading();
-    //   });
+    this.manageUserService.fetchAllUsers()
+      .subscribe((response: any) => {
+        this.dataSource = response;
+        console.log("🤦‍♀️🤦‍♀️🙌🙌😒")
+      });
   }
 
   doFilter(filterValue: any) {

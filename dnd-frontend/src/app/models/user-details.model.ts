@@ -1,7 +1,7 @@
 import { Address } from './address.model';
 
 export class UserDetails {
-  userId!: string;
+  userId!: number;
   username!: string;
   role!: string;
   designation!: string;
@@ -9,7 +9,7 @@ export class UserDetails {
   emailId!: string;
   phoneNo!: string;
   dob!: string;
-  address!: Address;
+  address!: String;
   firstName!: string;
   lastName!: string;
 }

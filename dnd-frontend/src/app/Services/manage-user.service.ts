@@ -2,28 +2,30 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user.model';
+import { UserDetails } from '../models/user-details.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ManageUserService {
-  authServiceUrl = `${environment.protocol}${environment.applicationUrl}/${environment.authService}`;
+
 
   constructor(private http: HttpClient) {}
 
-  fetchAllUsers() {
-    return this.http.get(`${this.authServiceUrl}/register`);
+  fetchAllUsers() : Observable<any>{
+    return this.http.get<UserDetails>('http://localhost:8082/user');
   }
 
-  updateUser(formData: any) {
-    return this.http.put(`${this.authServiceUrl}/register`, formData);
+  updateUser(User: UserDetails) : Observable<any>{
+    return this.http.put<UserDetails>('http://localhost:8082/user/updateuser', User);
   }
 
-  addUser(formData: any) {
-    return this.http.post(`${this.authServiceUrl}/register`, formData);
+  addUser(User: UserDetails): Observable<any> {
+    return this.http.post<UserDetails>('http://localhost:8082/user/adduser',User);
   }
 
   fetchById(id: any): Observable<any> {
-    return this.http.get(`${this.authServiceUrl}/register/${id}`);
+    return this.http.get<UserDetails>('http://localhost:8082/user/' + id);
   }
 }
