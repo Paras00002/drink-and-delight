@@ -1,4 +1,4 @@
-package com.dnd.user.model.dao;
+package com.dnd.user.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

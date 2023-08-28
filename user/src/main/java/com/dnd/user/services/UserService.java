@@ -1,12 +1,12 @@
-package com.dnd.user.model.services;
+package com.dnd.user.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dnd.user.dao.UserDao;
 import com.dnd.user.model.User;
-import com.dnd.user.model.dao.UserDao;
 
 @Service
 public class UserService {

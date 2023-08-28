@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dnd.user.model.User;
-import com.dnd.user.model.services.UserService;
+import com.dnd.user.services.UserService;
 
 @RestController
 @RequestMapping("/user")
