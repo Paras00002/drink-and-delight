@@ -14,72 +14,8 @@ export class ViewProductOrdersComponent implements OnInit {
   myDate = new Date(); // Replace with your actual Date object
   formattedDate = this.myDate.toISOString();
   dataSource: ProductOrder[] = [
-    {
-      productOrderId: 1,
-      quantity: 50,
-      pricePerUnit: 10,
-      qualityCheck: 'Passed',
-      orderStatus: 'Processing',
-      deliveryDate: '2023-08-15',
-      manufactureDate: '2023-08-01',
-      expiryDate: '2023-12-31',
-      orderedOn: '2023-08-11',
-      productId: 123,
-      productName: 'Product A',
-      description: 'Description for Product A',
-      distributorId: 456,
-      distributorName: 'Distributor X',
-      measurementUnit: 'unit',
-      warehouse: {
-        warehouseId: 789,
-        name: 'Warehouse Y',
-        description: 'Location Z',
-      },
-    },
-    {
-      productOrderId: 1,
-      quantity: 50,
-      pricePerUnit: 10,
-      qualityCheck: 'Passed',
-      orderStatus: 'Processing',
-      deliveryDate: '2023-08-15',
-      manufactureDate: '2023-08-01',
-      expiryDate: '2023-12-31',
-      orderedOn: '2023-08-11',
-      productId: 123,
-      productName: 'Product A',
-      description: 'Description for Product A',
-      distributorId: 456,
-      distributorName: 'Distributor X',
-      measurementUnit: 'unit',
-      warehouse: {
-        warehouseId: 789,
-        name: 'Warehouse Y',
-        description: 'Location Z',
-      },
-    },
-    {
-      productOrderId: 1,
-      quantity: 50,
-      pricePerUnit: 10,
-      qualityCheck: 'Passed',
-      orderStatus: 'Processed',
-      deliveryDate: '2023-08-15',
-      manufactureDate: '2023-08-01',
-      expiryDate: '2023-12-31',
-      orderedOn: '2023-08-11',
-      productId: 123,
-      productName: 'Product A',
-      description: 'Description for Product A',
-      distributorId: 456,
-      distributorName: 'Distributor X',
-      measurementUnit: 'unit',
-      warehouse: {
-        warehouseId: 789,
-        name: 'Warehouse Y',
-        description: 'Location Z',
-      },
-    },
+    
+   
     // Add more data entries here
   ];
 
@@ -106,12 +42,13 @@ export class ViewProductOrdersComponent implements OnInit {
   }
 
   fetchAllProductOrders() {
-    this.loadingService.enableLoading();
+    // this.loadingService.enableLoading();
     this.userSubscription = this.productOrderService
       .fetchAllProductOrders()
       .subscribe((response: ProductOrder[]) => {
-        this.dataSource = response;
-        this.loadingService.disableLoading();
+        this.dataSource = response; 
+        console.log(response[1]);
+        // this.loadingService.disableLoading();
       });
   }
 
