@@ -11,19 +11,17 @@ import { WarehouseService } from 'src/app/services/warehouse.service';
   styleUrls: ['./add-products.component.css'],
 })
 export class AddProductComponent implements OnInit {
-  product: Product;
-  warehouses: Warehouse[] = [];
-  warehouseId: any;
+  product!: Product;
+  // warehouses: Warehouse[] = [];
+  // warehouseId: any;
 
   constructor(
     private service: ProductService,
     private warehouseService: WarehouseService,
     private router: Router
   ) {
-    this.product = new Product();
-    // this.warehouseService.fetchAllWarehouse().subscribe((data: Warehouse[]) => {
-    //   this.warehouses = data;
-    // });
+    
+   
   }
 
   ngOnInit(): void {
@@ -31,13 +29,13 @@ export class AddProductComponent implements OnInit {
   }
 
   saveProduct(formData: any) {
-    let warhouse = new Warehouse();
-    this.router.navigate(['/dashboard/products']);
-    // this.product.quantityAvailable = 0;
-    // warhouse.warehouseId = +formData.warehouseId;
-    // this.product.warehouse = warhouse;
-    // this.service.addProduct(this.product).subscribe((res) => {
-    //   this.router.navigate(['/dashboard/products']);
-    // });
+    // let warhouse = new Warehouse();
+    // this.router.navigate(['/dashboard/products']);
+ 
+    this.service.addProduct(formData).subscribe((res) => {
+      console.log(res);
+      console.log(".😂🤣")
+      this.router.navigate(['/dashboard/products']);
+    });
   }
 }

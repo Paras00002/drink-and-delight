@@ -11,66 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ViewProductsComponent implements OnInit {
   products: Product[] = [
-    {
-      materialName: 'Material A',
-      productId: 1,
-      description: 'Description for Material A',
-      quantityAvailable: 100,
-      quantityUnit: 'unit',
-      warehouse: {
-        warehouseId: 123,
-        name: 'Warehouse X',
-        description: 'Location Y',
-      },
-    },
-    {
-      materialName: 'Material A',
-      productId: 1,
-      description: 'Description for Material A',
-      quantityAvailable: 100,
-      quantityUnit: 'unit',
-      warehouse: {
-        warehouseId: 123,
-        name: 'Warehouse X',
-        description: 'Location Y',
-      },
-    },
-    {
-      materialName: 'Material A',
-      productId: 1,
-      description: 'Description for Material A',
-      quantityAvailable: 100,
-      quantityUnit: 'unit',
-      warehouse: {
-        warehouseId: 123,
-        name: 'Warehouse X',
-        description: 'Location Y',
-      },
-    },
-    {
-      materialName: 'Material A',
-      productId: 1,
-      description: 'Description for Material A',
-      quantityAvailable: 100,
-      quantityUnit: 'unit',
-      warehouse: {
-        warehouseId: 123,
-        name: 'Warehouse X',
-        description: 'Location Y',
-      },
-    },
-    {
-      materialName: 'Material A',
-      productId: 1,
-      description: 'Description for Material A',
-      quantityAvailable: 100,
-      quantityUnit: 'unit',
-      warehouse: {
-        warehouseId: 123,
-        name: 'Warehouse X',
-        description: 'Location Y',
-      },
-    },
+
   ];
   role: any = 'Admin';
 
@@ -81,9 +22,10 @@ export class ViewProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.role = this.authService.getRole();
+ 
     this.productService.fetchAllProducts().subscribe((data: Product[]) => {
       this.products = data;
+      console.log("😂")
     });
   }
 

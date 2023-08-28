@@ -86,7 +86,6 @@
                         type="number"
                         [(ngModel)]="product.quantityAvailable"
                         name="quantityAvailable"
-                        disabled
                         value="0"
                         placeholder="0"
                         class="form-control"
@@ -123,30 +122,16 @@
                   <div class="col">
                     <div class="form-group">
                       <label for="warehouseId">Warehouse</label>
-                      <select
-                        name="warehouseId"
-                        [(ngModel)]="warehouseId"
+
+                      <input
+                        [(ngModel)]="product.warehouse"
+                        type="text"
+                        placeholder="Warehouse Name"
+                        name="materialName"
                         required
+                        #materialName="ngModel"
                         class="form-control"
-                      >
-                        <optgroup label="Select Warehouses">
-                          <option
-                            *ngFor="let warehouse of warehouses"
-                            [value]="warehouse.warehouseId"
-                            selected=""
-                          >
-                            {{ warehouse.name }}
-                          </option>
-                        </optgroup>
-                      </select>
-                      <div *ngIf="warehouseId.errors && warehouseId.invalid">
-                        <small
-                          *ngIf="warehouseId.errors?.required"
-                          class="text-danger"
-                        >
-                          Warehouse ID is a required field
-                        </small>
-                      </div>
+                      />
                     </div>
                   </div>
                   <div class="col">

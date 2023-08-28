@@ -1,8 +1,8 @@
 import { Warehouse } from './warehouse.model';
 
 export class Product {
-  materialName!: string;
   productId!: number;
+  materialName!: string;
   description!: string;
   quantityAvailable!: number;
   quantityUnit!: any;
