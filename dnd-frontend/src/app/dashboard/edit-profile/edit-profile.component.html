@@ -318,68 +318,26 @@
                       name="city"
                       [ngClass]="{
                         'is-invalid':
-                          submitted && userForm.get('address.city')?.invalid
+                          submitted && userForm.get('address')?.invalid
                       }"
                       formControlName="city"
                     />
                     <div
                       class="invalid-feedback"
-                      *ngIf="submitted && userForm.get('address.city')?.invalid"
+                      *ngIf="submitted && userForm.get('address')?.invalid"
                     >
                       <div
-                        *ngIf="userForm.get('address.city')?.errors?.['required']"
+                        *ngIf="userForm.get('address')?.errors?.['required']"
                       >
                         * Required
                       </div>
                       <div
-                        *ngIf="userForm.get('address.city')?.errors?.['minLength']"
+                        *ngIf="userForm.get('address')?.errors?.['minLength']"
                       >
                         Min length ust be 4
                       </div>
                       <div
-                        *ngIf="userForm.get('address.city')?.errors?.['maxLength']"
-                      >
-                        Max length must be 30
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-group">
-                    <label for="country"><strong>State</strong></label
-                    ><input
-                      type="text"
-                      class="form-control"
-                      placeholder="State"
-                      name="State"
-                      [ngClass]="{
-                        'is-invalid':
-                          submitted && userForm.get('address.state')?.invalid
-                      }"
-                      formControlName="state"
-                    />
-                    <div
-                      class="invalid-feedback"
-                      *ngIf="
-                        submitted && userForm.get('address.state')?.invalid
-                      "
-                    >
-                      <div
-                        *ngIf="userForm.get('address.state')?.errors?.['required']"
-                      >
-                        * Required
-                      </div>
-                      <div
-                        *ngIf="
-                          userForm.get('address.state')?.errors?.['minLength']
-                        "
-                      >
-                        Min length ust be 4
-                      </div>
-                      <div
-                        *ngIf="
-                          userForm.get('address.state')?.errors?.['maxLength']
-                        "
+                        *ngIf="userForm.get('address')?.errors?.['maxLength']"
                       >
                         Max length must be 30
                       </div>
@@ -388,78 +346,9 @@
                 </div>
               </div>
               <div class="row">
+                
                 <div class="col">
-                  <div class="form-group">
-                    <label for="area"><strong>Area</strong></label
-                    ><input
-                      type="text"
-                      class="form-control"
-                      placeholder="Area"
-                      name="area"
-                      [ngClass]="{
-                        'is-invalid':
-                          submitted && userForm.get('address.area')?.invalid
-                      }"
-                      formControlName="area"
-                    />
-                    <div
-                      class="invalid-feedback"
-                      *ngIf="submitted && userForm.get('address.area')?.invalid"
-                    >
-                      <div
-                        *ngIf="userForm.get('address.area')?.errors?.['required']"
-                      >
-                        * Required
-                      </div>
-                      <div
-                        *ngIf="userForm.get('address.area')?.errors?.['minLength']"
-                      >
-                        Min length ust be 4
-                      </div>
-                      <div
-                        *ngIf="userForm.get('address.area')?.errors?.['maxLength']"
-                      >
-                        Max length must be 30
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-group">
-                    <label for="pinode"><strong>pincode</strong></label
-                    ><input
-                      type="text"
-                      class="form-control"
-                      placeholder="pincode"
-                      name="pincode"
-                      formControlName="pincode"
-                      [ngClass]="{
-                        'is-invalid':
-                          submitted && userForm.get('address.pincode')?.invalid
-                      }"
-                    />
-                    <div
-                      class="invalid-feedback"
-                      *ngIf="
-                        submitted && userForm.get('address.pincode')?.invalid
-                      "
-                    >
-                      <div
-                        *ngIf="
-                          userForm.get('address.pincode')?.errors?.['required']
-                        "
-                      >
-                        * Required
-                      </div>
-                      <div
-                        *ngIf="
-                          userForm.get('address.pincode')?.errors?.['pattern']
-                        "
-                      >
-                        Must be of length 6
-                      </div>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>

@@ -12,7 +12,7 @@ import { ManageUserService } from 'src/app/services/manage-user.service';
 })
 export class ViewProfileComponent implements OnInit {
   user: UserDetails = {
-    userId: '1',
+    userId: 1,
     username: 'Peter',
     role: 'Admin',
     designation: 'Ceo',
@@ -20,7 +20,7 @@ export class ViewProfileComponent implements OnInit {
     emailId: 'samxn81@gmail.com',
     phoneNo: '8092222992',
     dob: '10/feb/2001',
-    address: new Address(),
+    address: 'Faridabad',
     firstName: 'Peter',
     lastName: 'Parker',
   };

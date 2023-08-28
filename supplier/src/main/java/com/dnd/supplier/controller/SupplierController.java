@@ -17,7 +17,7 @@ import com.dnd.supplier.services.SupplierService;
 
 @RestController
 @RequestMapping("/supplier")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 
 public class SupplierController {
    @Autowired
