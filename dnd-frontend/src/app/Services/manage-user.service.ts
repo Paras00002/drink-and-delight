@@ -21,7 +21,8 @@ export class ManageUserService {
     return this.http.put<UserDetails>('http://localhost:8082/user/updateuser', User);
   }
 
-  addUser(User: UserDetails): Observable<any> {
+  addUser(User: UserDetails): Observable<UserDetails> {
+    console.log(User)
     return this.http.post<UserDetails>('http://localhost:8082/user/adduser',User);
   }
 

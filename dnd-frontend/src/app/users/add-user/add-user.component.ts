@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Gender } from 'src/app/models/gender.model';
+import { UserDetails } from 'src/app/models/user-details.model';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ManageUserService } from 'src/app/services/manage-user.service';
 
@@ -16,8 +17,7 @@ export class AddUserComponent implements OnInit {
   genders = Gender;
   submitted = false;
   userForm!: FormGroup;
-  addUserSubscription!: Subscription;
-  message = null;
+  message !: String;
   maxDate = new Date(new Date().setFullYear(new Date().getFullYear() - 14))
     .toISOString()
     .slice(0, 10);
@@ -25,7 +25,6 @@ export class AddUserComponent implements OnInit {
 
   constructor(
     private manageUserService: ManageUserService,
-    public loadingService: LoadingService,
     private router: Router
   ) {
     this.initForm();
@@ -36,33 +35,27 @@ export class AddUserComponent implements OnInit {
   submitForm() {
     this.submitted = true;
     if (this.userForm.valid) this.addUser(this.userForm.value);
+    console.log("😘")
+    console.log(this.userForm.value)
   }
 
-  addUser(formData: any) {
-    // this.loadingService.enableLoading();
-    // this.addUserSubscription = this.manageUserService
-    //   .addUser(formData)
-    //   .subscribe(
-    //     (response) => {
-    //       this.loadingService.disableLoading();
-    //       this.message =
-    //         'Successfully Created user with ID ' + response['userId'];
-    //       setTimeout(() => {
-    //         this.router.navigateByUrl('/dashboard/users');
-    //       }, 3000);
-    //     },
-    //     (error) => {
-    //       console.log(error);
-    //       this.loadingService.disableLoading();
-    //       if (error.error.message === 'FieldException')
-    //         error.error.errors.forEach((element: { field: string | number; message: any; }) =>
-    //           this.userForm.controls[element.field]?.setErrors({
-    //             serverValidationError: element.message,
-    //           })
-    //         );
-    //       else throw new Error(error);
-    //     }
-    //   );
+  addUser(formData: UserDetails) {
+    console.log("hshsh")
+this.manageUserService
+      .addUser(formData)
+      .subscribe(
+        (response) => {
+          console.log("USer Add Hogya");
+          this.message =
+            'Successfully Created user with ID ' + response['userId'];
+          setTimeout(() => {
+            this.router.navigateByUrl('/dashboard/users');
+          }, 3000);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
   initForm() {
@@ -78,30 +71,13 @@ export class AddUserComponent implements OnInit {
         username: new FormControl('', [Validators.required]),
         password: new FormControl('', [Validators.required]),
         password2: new FormControl('', [Validators.required]),
-        address: new FormGroup({
-          state: new FormControl('', [
-            Validators.required,
-            Validators.minLength(4),
-            Validators.maxLength(30),
-          ]),
-          area: new FormControl('', [
-            Validators.required,
-            Validators.minLength(4),
-            Validators.maxLength(30),
-          ]),
-          city: new FormControl('', [
-            Validators.required,
-            Validators.minLength(4),
-            Validators.maxLength(30),
-          ]),
-          pincode: new FormControl('', [
-            Validators.required,
-            Validators.pattern('[0-9]{6}'),
-          ]),
-        }),
+        address: new FormGroup('', [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(30)
+        ])
       }
-      // { validators: this.matchPassword }
-    );
+    )
   }
 
   // matchPassword(control: FormControl) {
